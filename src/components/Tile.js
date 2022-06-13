@@ -27,3 +27,5 @@ const Tile = ({ name, image, specialty, greased, weight, medal }) => {
 }
 
 export default Tile
+
+// need to pass greased (boolean) weight(number) medal (string) to display on card
