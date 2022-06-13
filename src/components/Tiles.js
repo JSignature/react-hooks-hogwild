@@ -7,15 +7,7 @@ const Tiles = ({ hogs }) => {
     <div>
       <h1>Test</h1>
       {hogs.map(hog => (
-        <Tile
-          key={hog.id}
-          name={hog.name}
-          image={hog.image}
-          specialty={hog.specialty}
-          greased
-          weight
-          medal={'highest medal achieved'}
-        />
+        <Tile hog={hog} />
       ))}
     </div>
   )
