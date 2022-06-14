@@ -1,13 +1,33 @@
-import React from 'react'
+import { React, useState } from 'react'
 import Tile from './Tile'
 
 const Tiles = ({ hogs }) => {
-  console.log(hogs)
+  const [filteredHogs, setFilteredHogs] = useState({ hogs })
+  const [checked, setChecked] = useState(false)
+  // console.log(checked)
+
+  if (checked) {
+    const greasedHogs = filteredHogs.hogs.filter(hog => hog.greased)
+    setFilteredHogs(greasedHogs)
+    console.log(greasedHogs)
+  } else {
+    // setFilteredHogs(hogs)
+    console.log('unchecked')
+  }
+
   return (
     <div>
-      <h1>Test</h1>
-      {hogs.map(hog => (
-        <Tile hog={hog} />
+      <label htmlFor="Greased">Click here to show greased pigs</label>
+      <input
+        onClick={() => setChecked(!checked)}
+        type="checkbox"
+        name="Greased"
+        id=""
+        checked={checked}
+      />
+
+      {filteredHogs.hogs.map(hog => (
+        <Tile key={hog.name} hog={hog} />
       ))}
     </div>
   )

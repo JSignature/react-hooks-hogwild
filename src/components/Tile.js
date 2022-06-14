@@ -3,12 +3,10 @@ import { React, useState } from 'react'
 const Tile = ({ hog }) => {
   const [toggle, setToggle] = useState(false)
 
-  console.log(hog['highest medal achieved'])
-
   return (
     <div onClick={() => setToggle(!toggle)} class="ui card">
       <div class="image">
-        <img src={hog.image} />
+        <img src={hog.image} alt={'picture of a hog'} />
       </div>
       <div class="content">
         <div class="header">{hog.name}</div>
@@ -30,5 +28,3 @@ const Tile = ({ hog }) => {
 }
 
 export default Tile
-
-// need to pass greased (boolean) weight(number) medal (string) to display on card
