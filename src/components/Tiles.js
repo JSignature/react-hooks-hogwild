@@ -3,9 +3,11 @@ import Tile from './Tile'
 
 const Tiles = ({ hogs }) => {
   const [filteredHogs, setFilteredHogs] = useState(hogs)
-  console.log(filteredHogs)
+
   const [checked, setChecked] = useState(false)
-  // console.log(checked)
+  const name = ''
+  const weight = ''
+  const [sortType, setSortType] = useState(name)
 
   function handleCheck() {
     setChecked(!checked)
@@ -22,6 +24,13 @@ const Tiles = ({ hogs }) => {
 
   return (
     <div>
+      <form>
+        <label htmlFor="Name">Sort by name </label>
+        <input type="radio" name="Name" id="" value={name} checked />
+        <label htmlFor="Weight">Sort by weight</label>
+        <input type="radio" name="Weight" id="" value={weight} />
+      </form>
+      <br />
       <label htmlFor="Greased">Click here to show greased pigs</label>
       <input
         onClick={handleCheck}
@@ -30,7 +39,6 @@ const Tiles = ({ hogs }) => {
         id=""
         checked={checked}
       />
-
       {filteredHogs.map(hog => (
         <Tile key={hog.name} hog={hog} />
       ))}
